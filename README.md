@@ -30,9 +30,13 @@ Información sobre cómo contribuir al proyecto, si es aplicable.
 ## Generador de JSON simulado para el proyecto
 
 
-El script `simulador_con_transferencia.py` funciona en conjunto con `dijkstra_con_transferencias.py`. Usamos el algoritmo de Dijkstra, que es un algoritmo que encuentra el camino más corto entre dos nodos o vectores, manteniendo el registro del recorrido. Esto nos permitió dar seguimiento a todas las estaciones del recorrido de cada usuario. Genera un JSON de 150,000 usuarios del metro con sus rutas hacia el trabajo por dos semanas laborables. La información que contiene el JSON tiene la siguiente estructura:
+- El script `simulador_con_transferencia.py` funciona en conjunto con `dijkstra_con_transferencias.py`.
+- Usamos el algoritmo de Dijkstra, que es un algoritmo que encuentra el camino más corto entre dos nodos o vectores, manteniendo el registro del recorrido. Esto nos permitió dar seguimiento a todas las estaciones del recorrido de cada usuario.
+- Genera un JSON de 150,000 usuarios del metro con sus rutas hacia el trabajo por dos semanas laborables.
 
-return {
+La información que contiene el JSON tiene la siguiente estructura:
+
+        {
         "HoraDeEntrada": start_time.strftime("%H:%M:%S"),
         "HoraDeSalida": end_time.strftime("%H:%M:%S"),
         "Fecha": start_time.strftime("%d/%m/%Y"),
@@ -42,4 +46,7 @@ return {
         "Estación de entrada": start_station,
         "Estación de salida": end_station,
         "Lineas que fueron usadas": lines_rider_transfered,
-    }
+         }
+
+
+-  Para convertir el JSON  a csv se usa el script `transformar_json.py` 
