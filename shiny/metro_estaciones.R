@@ -113,13 +113,20 @@ paleta_afluencia <- colorRampPalette(c("blue","green","orange","red"))(1000)
 
 # -------------------------------------------------------------------------------
 # Cluster_map_rutas
-cluster_rutas <- ggplot(data_cluster, aes(x =  data_cluster[, 2], y = data_cluster[, 3], color = factor(cluster_labels$Cluster))) +
-  geom_point() +
-  labs(title = "Visualización de Clusters por Ruta de Usuario",
-       x = "Componente Principal 1",
-       y = "Componente Principal 2",
-       color = "Cluster") +
-  theme_minimal()
+cluster_rutas <- plot_ly(
+    data_cluster, 
+    x =  data_cluster[, 2], 
+    y = data_cluster[, 3], 
+    color = factor(cluster_labels$Cluster),
+    type="scatter",
+    mode="markers"
+    ) %>% 
+  layout(
+    title = "Visualización de Clusters por Ruta de Usuario",
+    xaxis = list(title="Componente Principal 1"),
+    yaxis = list(title="Componente Principal 2"),
+    showlegend= TRUE
+  )
 
 #cluster_map_entradas_salidas
 cluster_entradas_y_salidas <- ggplot(
