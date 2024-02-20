@@ -115,7 +115,7 @@ shinyUI(
         
         tabPanel("Cluster Rutas", 
                    mainPanel(
-                     plotOutput("cluster_rutas")
+                     plotlyOutput("cluster_rutas")
                  )
         ),
         

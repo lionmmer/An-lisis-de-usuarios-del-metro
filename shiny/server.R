@@ -104,11 +104,11 @@ shinyServer(function(input, output) {
        fillColor="black",
        fillOpacity = 1,
        opacity = 1,
-       #label = ~paste("Conteo:",result$Conteo, "estacion:", toupper(NOMBRE)),
+       label = ~paste("Conteo:",result$Conteo, "estacion:", toupper(NOMBRE)),
        #color = colorNumeric(palette = paleta_afluencia, domain = result$Conteo)(result$Conteo)
-       color = colorRamps::matlab.like2(1000)[cut(result$Conteo, breaks=1000)]
-     ) %>%
-     addLegend(pal=paleta_single, values = ~ LINEA)
+       color = colorRamps::matlab.like2(100)[cut(result$Conteo, breaks=100)]
+     ) 
+   #%>% addLegend(pal=paleta_single, values = ~ LINEA)
    
    map_metro_cdmx
  })
@@ -118,7 +118,7 @@ shinyServer(function(input, output) {
  
  
  # Cluster rutas general
- output$cluster_rutas <- renderPlot({
+ output$cluster_rutas <- renderPlotly({
    cluster_rutas
  })
  
